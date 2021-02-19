@@ -1,0 +1,44 @@
+{
+  "name": "booky",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --progress --config build/webpack.config.dev.js",
+    "prod": "webpack --config build/webpack.config.prod.js",
+    "serve": "vue-cli-service serve"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "buefy": "^0.9.3",
+    "bulma": "^0.9.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "precss": "^4.0.0",
+    "underscore-template-loader": "^1.1.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vue2-editor": "^2.10.2",
+    "webpack": "4.11.1",
+    "webpack-cleanup-plugin": "0.5.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10",
+    "webpack-merge": "4.1.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0"
+  }
+}
