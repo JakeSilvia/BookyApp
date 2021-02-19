@@ -19,17 +19,15 @@
         </b-table-column>
         <b-table-column
             v-slot="props"
-            sortable
             searchable
             label="Action">
           {{ props.row.action }}
         </b-table-column>
         <b-table-column
             v-slot="props"
-            sortable
             searchable
             label="Date">
-          <pre>{{ props.row.date }}</pre>
+          <pre>{{ props.row.date.toString() }}</pre>
         </b-table-column>
         <template #detail="props">
           <div class="container">
@@ -64,7 +62,7 @@ export default {
           this.$notification('is-danger', resp.err)
           return
         }
-        this.events = resp.data
+        this.events = resp.data.reverse()
       })
     }
   }

@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export default {
   setupWebSocketConn(callback) {
     let ws = new WebSocket(`ws://booky-env-1.us-east-1.elasticbeanstalk.com:5000/api/connect`)
