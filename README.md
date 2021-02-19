@@ -26,6 +26,7 @@ npm run prod
 - MongoDB for ease of setup and deployment but a better solution may be redis or dynamodb depending on use case.
 
 <br>
+
 ## Project Layout:
 
 - `server`
