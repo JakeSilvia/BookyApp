@@ -17,7 +17,14 @@ npm run prod
 
 <br>
 
-##### Notes: This project is laid out to make unit testing reach 100% coverage with relative ease.
+##### Notes: This project is laid out to make unit testing reach 100% coverage with relative ease. Can be containerized easily with a Dockerfile to deploy to EKS/ECS.
+
+
+## Infra Layout:
+Deployed on Elastic Beanstalk inside of a VPC with a security group.
+A Classic tcp load-balancer to handle websocket connections.
+MongoDB for ease of setup and deployment but a better solution may be redis or dynamodb depending on use case.
+
 
 ## Project Layout:
 
