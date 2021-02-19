@@ -17,7 +17,7 @@ npm run prod
 
 <br>
 
-##### Notes: This project is laid out to make unit testing reach 100% coverage with relative ease. Can be containerized easily with a Dockerfile to deploy to EKS/ECS.
+#### Notes: This project is laid out to make unit testing reach 100% coverage with relative ease. Can be containerized easily with a Dockerfile to deploy to EKS/ECS.
 
 
 ## Infra Layout:
