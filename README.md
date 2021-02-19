@@ -20,10 +20,10 @@ npm run prod
 
 
 ## Infra Layout:
-Real-Time updates on both the Books page and the Events page.
-Deployed on Elastic Beanstalk inside of a VPC with a security group.
-A Classic tcp load-balancer to handle websocket connections.
-MongoDB for ease of setup and deployment but a better solution may be redis or dynamodb depending on use case.
+- Real-Time updates on both the Books page and the Events page.
+- Deployed on Elastic Beanstalk inside of a VPC with a security group.
+- A Classic tcp load-balancer to handle websocket connections.
+- MongoDB for ease of setup and deployment but a better solution may be redis or dynamodb depending on use case.
 
 
 ## Project Layout:
