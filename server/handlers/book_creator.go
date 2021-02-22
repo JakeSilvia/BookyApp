@@ -18,13 +18,19 @@ type BookCreatorHandler struct {
 func (bg *BookCreatorHandler) Put (c *booky_context.ServerContext, w web.ResponseWriter, r *web.Request) {
 	book := book_entities.BookUpdate{}
 	err := json.NewDecoder(r.Body).Decode(&book)
+		if err != nil {
+		log.Printf("error decoding body: %v", err)
+		c.ServeErrorf(http.StatusBadRequest, err)
+		return
+	}
+
 	upserter := &book_creator_interactor.BookCreator{
 		BookGateway: bg.BookGateway,
 		Book: book,
 	}
 	err = upserter.Run(c.Ctx)
 	if err != nil {
-		log.Printf("error updating book: %v", err)
+		log.Printf("error creating book: %v", err)
 		c.ServeErrorf(http.StatusBadRequest, err)
 		return
 	}
