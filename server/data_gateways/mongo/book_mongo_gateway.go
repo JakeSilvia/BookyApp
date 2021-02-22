@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	BooksCollection = "books"
+	BooksCollection  = "books"
 	EventsCollection = "events"
 )
 
@@ -22,7 +22,7 @@ type BookMongoGateway struct {
 
 type Change struct {
 	FullDocument  *book_entities.BookEvent `bson:"fullDocument"`
-	OperationType string `bson:"operationType"`
+	OperationType string                   `bson:"operationType"`
 	DocumentKey   struct {
 		Id primitive.ObjectID `bson:"_id"`
 	} `bson:"documentKey"`
@@ -138,9 +138,9 @@ func (bmg *BookMongoGateway) DeleteBook(ctx context.Context, isbn string) error 
 
 func (bmg *BookMongoGateway) storeEvent(ctx context.Context, action string, book *book_entities.Book) error {
 	_, err := bmg.DB.Collection(EventsCollection).InsertOne(ctx, book_entities.BookEvent{
-		Action: action,
+		Action:   action,
 		BookItem: book,
-		Date: time.Now().String(),
+		Date:     time.Now().String(),
 	})
 	return err
 }
@@ -163,13 +163,15 @@ func (bmg *BookMongoGateway) ListenForChanges(ctx context.Context, c chan *book_
 }
 
 func iterateChangeStream(routineCtx context.Context, stream *mongo.ChangeStream) (*Change, error) {
-	for stream.Next(routineCtx) {
-		change := &Change{}
-		if err := stream.Decode(change); err != nil {
-			return nil, err
-		}
-
-		return change, nil
+	next := stream.Next(routineCtx)
+	if !next {
+		return nil, nil
 	}
-	return nil, nil
+
+	change := &Change{}
+	if err := stream.Decode(change); err != nil {
+		return nil, err
+	}
+
+	return change, nil
 }
