@@ -210,6 +210,7 @@ export default {
         }
 
         this.$set(this.books, index, book)
+        this.$notification('is-success', `<b>${this.formatName(book.title)}</b> has been checked out`)
       })
     },
     openDeleteBookDialog(book, index) {
