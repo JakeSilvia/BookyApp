@@ -22,7 +22,7 @@ func (bg *BooksReportHandler) Get (c *booky_context.ServerContext, w web.Respons
 
 	report, err := getter.Run(c.Ctx)
 	if err != nil {
-		log.Printf("error getting books: %v", err)
+		log.Printf("error getting books report: %v", err)
 		c.ServeErrorf(http.StatusBadRequest, err)
 		return
 	}
