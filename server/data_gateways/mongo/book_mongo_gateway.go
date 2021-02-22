@@ -29,7 +29,10 @@ type Change struct {
 }
 
 func (bmg *BookMongoGateway) GetEvents(ctx context.Context, count int64) ([]book_entities.BookEvent, error) {
-	opts := &options.FindOptions{Limit: &count}
+	opts := &options.FindOptions{
+		Limit: &count,
+		Sort: bson.M{"date": -1},
+	}
 	cursor, err := bmg.DB.Collection(EventsCollection).Find(ctx, bson.M{}, opts)
 	if err != nil {
 		return nil, err

@@ -62,7 +62,8 @@ export default {
           this.$notification('is-danger', resp.err)
           return
         }
-        this.events = resp.data.reverse()
+        console.log("E: ", resp.data)
+        this.events = resp.data
       })
     }
   }
